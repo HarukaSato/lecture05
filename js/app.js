@@ -16,29 +16,14 @@ var showResult = function(result){
 	output.value = result + "";
 };
 
-var add = function(a, b){
-	return a + b;
-};
-
-var subtract = function(a, b){
-	return a - b;
-};
-
-var multiply = function(a, b){
-	return a * b;
-};
 
 var divide = function(a, b){
 	return a / b;
 };
 
-var modulus = function(a, b){
-	return a % b;
-};
 
 var isOperator = function(operator){
-	return operator == "+" || operator == "-" || operator == "*" ||
-	operator == "/" || operator == "%";
+	return 	operator == "/" || operator == "%";
 };
 
 var isNumber = function(a){
@@ -61,20 +46,6 @@ var isDivision = function(operator, a, b){
 	return operator == "/" && isNumber(a) && isNonZeroNumber(b);
 };
 
-var isModulus = function(operator, a, b){
-	return operator == "%" && isNaturalNumber(a) && isNaturalNumber(b);
-};
-
-var isMultiplication = function(operator, a, b){
-	return operator == "*" && isNumber(a) && isNumber(b);
-};
-
-var isSubtraction = function(operator, a, b){
-	return operator == "-" && isNumber(a) && isNumber(b);
-};
-
-var isAddition = function(operator, a, b){
-	return operator == "+" && isNumber(a) && isNumber(b);
 }
 
 var isReady = function(operator, a, b){
@@ -90,25 +61,7 @@ var startCalc = function(){
 	operandA = Number(operandA);
 	operandB = Number(operandB);
 
-	hideError();
-	if(isReady(operator, operandA, operandB)){
-		var result = 0;
-		if(operator == "+"){
-			result = add(operandA, operandB);
-		}else if(operator == "-"){
-			result = subtract(operandA, operandB)
-		}else if(operator == "*"){
-			result = multiply(operandA, operandB);
-		}else if(operator == "/"){
-			result = divide(operandA, operandB);
-		}else if(operator == "%"){
-			result = modulus(operandA, operandB);
-		}
-		showResult(result);
-	}else{
-		showError();
-	}
-};
+	
 
 var initApp = function(){
 	var calcButton = document.querySelector("#calcButton");
